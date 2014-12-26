@@ -1,0 +1,206 @@
+---
+title: "RStudio Workspace Setup"
+author: "Paul Cuciureanu"
+date: '2014-12-26'
+output: html_document
+---
+# Recommended Packages
+Needed a quick way to setup my RStudio environment with the most common packages. Initial list based on [Quick list of useful R packages] [1]
+
+## How To Use
+1. Open in RStudio
+1. Add wanted packages to queue by running the associated code chunks.
+1. Execute ```install.packages(packages)```
+1. Watch for install errors in the console
+
+```{r}
+packages <- c()
+```
+
+## Load data
+If you'd like to read in data from a database, these packages are a good place to start. Choose the package that fits your type of database.
+```{r}
+append(packages, "RODBC")
+append(packages, "RMySQL")
+append(packages, "RPostgresSQL")
+append(packages, "RSQLite")
+```
+
+These packages help you read and write Micorsoft Excel files from R. You can also just export your spreadsheets from Excel as .csv's.
+```{r}
+append(packages, "XLConnect")
+append(packages, "xlsx")
+```
+
+Want to read a SAS data set into R? Or an SPSS data set? Foreign provides functions that help you load data files from other programs into R.
+```{r}
+append(packages, "foreign")
+```
+
+## Manipulate data
+packages <- c(package, "plyr", "reshape2", "stringr", "lubridate")
+```{r}
+append(packages, "")
+```
+
+## Visualize data
+packages <- c(package, "ggplot2", "rgl", "googleVis")
+```{r}
+append(packages, "")
+```
+
+## To model data
+Make type II and type III Anova tables.
+```{r}
+append(packages, "car")
+```
+
+Generalized Additive Models
+```{r}
+append(packages, "mgcv")
+```
+
+Linear and Non-linear mixed effects models
+```{r}
+append(packages, "lme4")
+append(packages, "nlme")
+```
+
+Random forest methods from machine learning
+```{r}
+append(packages, "randomForest")
+```
+
+Tools for multiple comparison testing
+```{r}
+append(packages, "multcomp")
+```
+
+Visualization tools and tests for categorical data
+```{r}
+append(packages, "vcd")
+```
+
+Lasso and elastic-net regression methods with cross validation
+```{r}
+append(packages, "glmnet")
+```
+
+Tools for survival analysis
+```{r}
+append(packages, "survival")
+```
+
+Tools for training regression and classification models
+```{r}
+append(packages, "caret")
+```
+
+## To report results
+Easily make interactive, web apps with R. A perfect way to explore data and share findings with non-programmers.
+```{r}
+append(packages, "shiny")
+```
+
+Write R code in your Latex markdown (e.g. HTML) documents. When you run knit, knitr will replace the code with its results and then build your document. The result? Automated reporting. Knitr is integrated straight into RStudio.
+```{r}
+append(packages, "knitr")
+```
+
+The xtable function takes an R object (like a data frame) and returns the latex or HTML code you need to paste a pretty version of the object into your documents. Copy and paste, or pair up with knitr.
+```{r}
+append(packages, "xtable")
+```
+
+Slidify lets you build HTML 5 slide shows straight from R. You write your slides in a combination of R and markdown.
+```{r}
+append(packages, "slidify")
+```
+
+## For Spatial data
+Tools for loading and using spatial data including shapefiles.
+```{r}
+append(packages, "sp")
+append(packages, "maptools")
+```
+
+Easy to use map polygons for plots.
+```{r}
+append(packages, "maps")
+```
+
+Download street maps straight from Google maps and use them as a background in your ggplots.
+```{r}
+append(packages, "ggmap")
+```
+
+## For Time Series and Financial data
+Provides the most popular format for saving time series objects in R.
+```{r}
+append(packages, "zoo")
+```
+
+Very flexible tools for manipulating time series data sets.
+```{r}
+append(packages, "xts")
+```
+
+Tools for downloading financial data, plotting common charts, and doing technical analysis.
+```{r}
+append(packages, "quantmod")
+```
+
+## To write high performance R code
+Write R functions that call C++ code for lightning fast speed.
+```{r}
+append(packages, "Rcpp")
+```
+
+An alternative way to organize data sets for very, very fast operations. Useful for big data.
+```{r}
+append(packages, "data.table")
+```
+
+Use parallel processing in R to speed up your code or to crunch large data sets.
+```{r}
+append(packages, "parallel")
+```
+
+## To work with the web
+Read and create XML documents with R
+```{r}
+append(packages, "XML")
+```
+
+Read and create JSON data tables with R
+```{r}
+append(packages, "jsonlite")
+```
+
+A set of useful tools for working with http connections
+```{r}
+append(packages, "httr")
+```
+
+## To write your own R packages
+An essential suite of tools for turning your code into an R package.
+```{r}
+append(packages, "devtools")
+```
+
+An easy way to write unit tests for your code projects.
+```{r}
+append(packages, "testthat")
+```
+
+A quick way to document your R packages. roxygen2 turns inline code comments into documentation pages and builds a package namespace.
+```{r}
+append(packages, "roxygen2")
+```
+
+# Install all packages
+```{r}
+install.packages(packages)
+```
+
+[1]: https://support.rstudio.com/hc/en-us/articles/201057987-Quick-list-of-useful-R-packages "Quick list of useful R packages - RStudio"
